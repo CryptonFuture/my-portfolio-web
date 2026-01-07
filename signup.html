@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R$ RimshaDesigns | Signup</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{
+  background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80") no-repeat center/cover fixed;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  z-index:-1;
+}
+.auth-container{
+  background:rgba(20,20,20,0.9);
+  padding:40px 30px;
+  border-radius:15px;
+  width:350px;
+  text-align:center;
+}
+.auth-container h2{color:#00adb5;margin-bottom:25px;}
+.auth-container input{width:100%;padding:10px 12px;margin:8px 0;border:none;border-radius:8px;}
+.auth-container button{width:100%;padding:12px;background:#00adb5;color:black;font-weight:bold;border:none;border-radius:8px;cursor:pointer;margin-top:10px;}
+.auth-container button:hover{opacity:0.9;}
+.bottom-text{margin-top:15px;color:#ccc;}
+.bottom-text a{color:#00adb5;text-decoration:none;font-weight:bold;}
+.bottom-text a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<div class="auth-container">
+  <h2>Sign Up</h2>
+  <input type="text" placeholder="Full Name" required>
+  <input type="email" placeholder="Email" required>
+  <input type="text" placeholder="Username" required>
+  <input type="password" placeholder="Password" required>
+  <input type="password" placeholder="Repeat Password" required>
+  <button onclick="signup()">Sign Up</button>
+
+  <div class="bottom-text">
+    Already have an account? <a href="auth.html">Sign In</a>
+  </div>
+</div>
+
+<script>
+function signup(){
+  // After signup, redirect to dashboard
+  window.location.href="dashboard.html";
+}
+</script>
+
+</body>
+</html>

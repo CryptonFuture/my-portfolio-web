@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R$ RimshaDesigns | Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{display:flex;min-height:100vh;overflow-x:hidden;background:#111;color:white;}
+
+/* SIDEBAR */
+.sidebar{
+  width:250px;background:#1a1a1a;position:fixed;top:0;left:0;bottom:0;padding:30px 15px;transition:0.3s;overflow-y:auto;z-index:200;
+}
+.sidebar.closed{width:70px;}
+.sidebar h2{color:#00adb5;text-align:center;margin-bottom:40px;}
+.sidebar ul{list-style:none;}
+.sidebar ul li{margin:20px 0;}
+.sidebar ul li a{color:#ccc;text-decoration:none;display:flex;align-items:center;gap:12px;padding:10px;border-radius:8px;transition:0.3s;}
+.sidebar ul li a:hover{background:#00adb5;color:black;}
+.sidebar ul li a i{width:25px;text-align:center;}
+.toggle-btn{position:absolute;top:15px;right:-35px;background:#00adb5;color:black;border-radius:50%;padding:8px;cursor:pointer;font-size:18px;}
+
+/* MAIN CONTENT */
+.main-content{margin-left:250px;padding:30px;transition:0.3s;}
+.main-content.full{margin-left:70px;}
+
+/* DASHBOARD HEADER */
+.dashboard-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;}
+.dashboard-header h1{color:#00adb5;}
+.logout-btn{background:#00adb5;color:black;padding:10px 18px;border:none;border-radius:10px;font-weight:bold;cursor:pointer;}
+.logout-btn:hover{opacity:0.9;}
+
+/* CARDS */
+.card{background:#222;padding:20px;border-radius:15px;margin-bottom:20px;}
+.card h3{color:#00adb5;margin-bottom:10px;}
+.card p{color:#ccc;line-height:1.5;}
+
+/* PROGRESS BARS */
+.skill-bar{background:#111;border-radius:20px;overflow:hidden;margin-bottom:12px;}
+.skill-fill{height:12px;width:0;background:#00adb5;border-radius:10px;animation:fill 2s forwards;}
+@keyframes fill{to{width:var(--level);}}
+
+/* PROJECTS GRID */
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.project-card{background:#222;border-radius:12px;padding:15px;}
+.project-card img{width:100%;height:160px;border-radius:10px;object-fit:cover;}
+
+/* TIMELINE */
+.timeline{border-left:3px solid #00adb5;padding-left:20px;}
+.timeline-item{margin-bottom:20px;}
+.timeline-item h3{color:#00adb5;}
+.timeline-item p{color:#ccc;}
+
+/* CONTACT FORM */
+.contact-form{max-width:600px;display:flex;flex-direction:column;gap:12px;}
+.contact-form input,.contact-form textarea{padding:10px;border-radius:8px;border:none;}
+.contact-form button{padding:12px;background:#00adb5;color:black;font-weight:bold;border:none;border-radius:8px;cursor:pointer;margin-top:10px;}
+.contact-form button:hover{opacity:0.9;}
+
+/* MOBILE */
+@media(max-width:768px){
+  .sidebar{position:fixed;left:-250px;}
+  .sidebar.open{left:0;}
+  .main-content{margin-left:0;}
+}
+
+/* ANIMATIONS */
+.animate{opacity:0;transform:translateY(20px);transition:all 0.8s ease-out;}
+.animate.show{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <h2>R$ Rimsha</h2>
+  <ul>
+    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
+    <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+    <li><a href="#projects"><i class="fas fa-folder-open"></i> Projects</a></li>
+    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+  </ul>
+  <div class="toggle-btn" onclick="toggleSidebar()"><i class="fas fa-angle-left"></i></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="mainContent">
+
+  <div class="dashboard-header">
+    <h1>Dashboard</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+  </div>
+</body>
+</html>
