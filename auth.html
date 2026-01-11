@@ -3,71 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>R$ RimshaDesigns | Login</title>
+<title>Login | RimshaDesigns</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{
-  background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80") no-repeat center/cover fixed;
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
   min-height:100vh;
+  background:url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1950&q=80") center/cover fixed;
+  display:flex;align-items:center;justify-content:center;color:white;
 }
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.7);
-  z-index:-1;
+body::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:-1}
+
+.card{
+  width:380px;
+  background:rgba(0,0,0,.65);
+  border:1px solid rgba(0,173,181,.4);
+  border-radius:22px;
+  padding:40px;
+  backdrop-filter:blur(15px);
+  position:relative;
 }
-.auth-container{
-  background:rgba(20,20,20,0.9);
-  padding:40px 30px;
-  border-radius:15px;
-  width:350px;
-  text-align:center;
+
+.close{
+  position:absolute;top:18px;right:18px;
+  color:#00adb5;cursor:pointer;font-size:18px;
 }
-.auth-container h2{color:#00adb5;margin-bottom:25px;}
-.auth-container input{width:100%;padding:10px 12px;margin:10px 0;border:none;border-radius:8px;}
-.auth-container button{width:100%;padding:12px;background:#00adb5;color:black;font-weight:bold;border:none;border-radius:8px;cursor:pointer;margin-top:10px;}
-.auth-container button:hover{opacity:0.9;}
-.social-login{display:flex;justify-content:space-between;margin:15px 0;}
-.social-login button{flex:1;margin:0 5px;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;border:none;border-radius:8px;cursor:pointer;color:white;font-weight:bold;}
-.social-login .google{background:#db4437;}
-.social-login .twitter{background:#1da1f2;}
-.social-login .instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);}
-.bottom-text{margin-top:15px;color:#ccc;}
-.bottom-text a{color:#00adb5;text-decoration:none;font-weight:bold;}
-.bottom-text a:hover{text-decoration:underline;}
+
+.logo{text-align:center;font-size:2rem;font-weight:bold;margin-bottom:30px}
+.logo span{
+  font-size:2.4rem;
+  background:linear-gradient(45deg,#00adb5,#00ffcc);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+.field{position:relative;margin-bottom:22px}
+.field label{
+  position:absolute;top:-8px;left:14px;
+  background:#000;padding:0 6px;
+  font-size:12px;color:#00adb5;
+}
+.field input{
+  width:100%;padding:14px 40px 14px 14px;
+  border-radius:12px;border:1px solid rgba(0,173,181,.4);
+  background:rgba(0,0,0,.6);color:white;
+}
+.field input::placeholder{color:#777}
+
+.eye{
+  position:absolute;right:14px;top:50%;
+  transform:translateY(-50%);cursor:pointer;color:#00adb5;
+}
+
+.btn{
+  width:100%;padding:14px;border:none;border-radius:14px;
+  font-weight:bold;background:linear-gradient(45deg,#00adb5,#00ffcc);
+  color:black;cursor:pointer;
+}
+.btn:hover{box-shadow:0 10px 25px rgba(0,173,181,.4)}
+
+.switch{text-align:center;margin-top:18px;font-size:14px}
+.switch a{color:#00adb5;text-decoration:none}
 </style>
 </head>
+
 <body>
+<div class="card">
+  <i class="fa-solid fa-xmark close" onclick="location.href='index.html'"></i>
 
-<div class="auth-container">
-  <h2>Login</h2>
-  <input type="email" placeholder="Email" required>
-  <input type="password" placeholder="Password" required>
-  <button onclick="login()">Login</button>
+  <div class="logo"><span>R</span>imshaDesigns</div>
 
-  <div class="social-login">
-    <button class="google"><i class="fab fa-google"></i> Google</button>
-    <button class="twitter"><i class="fab fa-twitter"></i> Twitter</button>
-    <button class="instagram"><i class="fab fa-instagram"></i> Instagram</button>
+  <div class="field">
+    <label>Email</label>
+    <input type="email" placeholder="Required">
   </div>
 
-  <div class="bottom-text">
-    Don't have an account? <a href="signup.html">Sign Up</a>
+  <div class="field">
+    <label>Password</label>
+    <input type="password" id="loginPass" placeholder="Required">
+    <i class="fa-solid fa-eye eye" onclick="togglePass('loginPass',this)"></i>
+  </div>
+
+  <!-- <button class="btn" onclick="goDashboard()">Login</button> -->
+
+  <div class="switch">
+    Don’t have an account? <a href="signup.html">Sign up</a>
   </div>
 </div>
-
 <script>
-function login(){
-  // After login, redirect to the advanced dashboard
+function togglePass(id,icon){
+  const input=document.getElementById(id);
+  input.type=input.type==="password"?"text":"password";
+  icon.classList.toggle("fa-eye-slash");
+}
+function goDashboard(){
   window.location.href="dashboard.html";
 }
 </script>
-
 </body>
 </html>
