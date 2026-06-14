@@ -2,224 +2,303 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Dashboard | MishaDesigns</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign Up | RimshaDesigns</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#000;color:#fff}
+.container{display:flex;min-height:100vh}
 
-body{
-  min-height:100vh;
-  background:url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1950&q=80") no-repeat center/cover fixed;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
+/* SIDEBAR */
+.sidebar{
+  width:260px;padding:30px;
+  position:fixed;height:100%;
+  background:url('https://images.unsplash.com/photo-1508780709619-79562169bc64') center/cover
 }
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.75);
-  z-index:-1;
+.logo{font-size:24px;font-weight:bold;margin-bottom:25px}
+.logo span{color:#00ffcc}
+.nav a{
+  display:flex;align-items:center;gap:10px;
+  padding:12px;border-radius:8px;
+  margin-bottom:8px;cursor:pointer;
+  background:rgba(0,0,0,.35);
+  color:#fff;text-decoration:none;
+  transition:.3s
 }
-
-/* CARD */
-.signup-card{
-  width:420px;
-  background:rgba(0,0,0,0.65);
-  border:1px solid rgba(0,173,181,0.4);
-  border-radius:22px;
-  padding:40px 35px;
-  backdrop-filter:blur(15px);
-  animation:fadeUp .8s ease;
-}
-
-/* LOGO */
-.logo{
-  text-align:center;
-  font-size:1.9rem;
-  font-weight:bold;
-  margin-bottom:25px;
-}
-.logo span{
-  font-size:2.3rem;
-  background:linear-gradient(45deg,#00adb5,#00ffcc);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+.nav a:hover,.nav a.active{background:rgba(0,255,204,.25)}
+.logout{position:absolute;bottom:20px;width:200px}
+.logout button{
+  width:100%;padding:12px;border:none;
+  border-radius:20px;background:#00ffcc;
+  font-weight:bold;cursor:pointer
 }
 
-/* INPUT GROUP */
-.input-group{
-  position:relative;
-  margin-bottom:18px;
-}
-.input-group input{
-  width:100%;
-  padding:14px 45px 14px 14px;
-  border-radius:12px;
-  border:1px solid rgba(0,173,181,0.4);
-  background:rgba(0,0,0,0.6);
-  color:white;
-  outline:none;
-}
-.input-group input::placeholder{color:#aaa;}
+/* MAIN */
+.main{margin-left:260px;padding:30px;flex:1;background:#0b0b0b}
+.section{display:none;background:#111;padding:25px;border-radius:15px}
+.section.active{display:block}
+h2{color:#00ffcc;margin-bottom:15px}
 
-/* HOVER TEXT */
-.input-group::after{
-  position:absolute;
-  right:12px;
-  top:-22px;
-  font-size:12px;
-  color:#00adb5;
+/* DASHBOARD CARDS */
+.cards{display:flex;gap:20px;margin-bottom:30px}
+.card{
+  flex:1;background:#0f0f0f;
+  padding:25px;border-radius:15px;
+  text-align:center
+}
+.card h3{color:#00adb5}
+.card p{font-size:24px;font-weight:bold}
+
+/* CHARTS */
+.charts{
+  display:flex;gap:20px;
+  flex-wrap:wrap;margin-bottom:30px
+}
+.chart-box{
+  flex:1;min-width:250px;
+  height:250px;background:#0f0f0f;
+  padding:15px;border-radius:15px
+}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin-top:15px}
+thead th{
+  background:#111;color:#00ffcc;
+  padding:14px;text-align:left
+}
+tbody td{
+  background:#0f0f0f;
+  padding:14px;border-bottom:1px solid #333
+}
+
+/* ADVANCED TABLE UX */
+tbody tr{
+  cursor:pointer;
   opacity:0;
-  transition:.3s;
+  transform:translateY(10px);
+  animation:rowIn .4s ease forwards
 }
-.input-group.required:hover::after{
-  content:"Required";
-  opacity:1;
+tbody tr:hover{background:rgba(0,255,204,.15)}
+tbody tr.selected{
+  background:rgba(0,255,204,.3);
+  box-shadow:inset 0 0 0 2px #00ffcc
 }
-.input-group.username:hover::after{
-  content:"Required";
-  opacity:1;
+@keyframes rowIn{to{opacity:1;transform:none}}
+
+/* USER ACTIONS */
+.user-actions{
+  margin-top:15px;
+  display:flex;gap:15px
 }
-.input-group.email:hover::after{
-  content:"Enter a valid email";
-  opacity:1;
+.user-actions button{
+  padding:10px 26px;
+  border:none;border-radius:25px;
+  font-weight:bold;cursor:pointer
 }
-.input-group.password:hover::after{
-  content:"At least 8 characters";
-  opacity:1;
+.user-edit{background:#00adb5}
+.user-delete{background:#ff4d4d;color:#fff}
+
+/* CONTACT TOOLBAR */
+.contact-toolbar{
+  display:flex;gap:15px;
+  margin-bottom:15px
+}
+.contact-toolbar input{
+  flex:1;padding:12px 18px;
+  border-radius:25px;border:none;outline:none
+}
+.contact-toolbar button{
+  background:#0f0f0f;color:#00ffcc;
+  border:none;padding:10px 18px;
+  border-radius:25px;cursor:pointer;
+  display:flex;gap:6px;align-items:center
 }
 
-/* EYE ICON */
-.eye{
-  position:absolute;
-  right:14px;
-  top:50%;
-  transform:translateY(-50%);
-  cursor:pointer;
-  color:#00adb5;
+/* FORMS */
+form input,form textarea{
+  width:100%;padding:12px;margin-bottom:10px;
+  border-radius:8px;border:none
 }
-
-/* BUTTON */
-.signup-btn{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  font-weight:bold;
-  background:linear-gradient(45deg,#00adb5,#00ffcc);
-  color:black;
-  cursor:pointer;
-  transition:.3s;
-}
-.signup-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(0,173,181,.4);
-}
-
-/* FOOT */
-.extra{
-  margin-top:18px;
-  text-align:center;
-  font-size:14px;
-}
-.extra a{color:#00adb5;text-decoration:none;}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:none}
+form button{
+  padding:12px 25px;border:none;
+  border-radius:20px;background:#00ffcc;
+  font-weight:bold;cursor:pointer
 }
 </style>
 </head>
+
 <body>
 
-<div class="signup-card">
+<div class="container">
 
-  <div class="logo">
-    <span>R</span>imshaDesigns
+<div class="sidebar">
+  <div class="logo"><span>M</span>ishaDesigns</div>
+  <div class="nav">
+    <a class="active" onclick="openSection('dashboard',this)">Dashboard</a>
+    <a onclick="openSection('education',this)">Education</a>
+    <a onclick="openSection('experience',this)">Experience</a>
+    <a onclick="openSection('projects',this)">Projects</a>
+    <a onclick="openSection('skills',this)">Skills</a>
+    <a onclick="openSection('contact',this)">Contacts</a>
+  </div>
+  <div class="logout"><button onclick="location.reload()">Logout</button></div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="section active">
+
+  <!-- STATS -->
+  <div class="cards">
+    <div class="card"><h3>Active Users</h3><p>2</p></div>
+    <div class="card"><h3>Projects</h3><p>5</p></div>
+    <div class="card"><h3>Experience</h3><p>1 Year</p></div>
+  </div>
+  <div class="charts">
+    <div class="chart-box"><canvas id="lineChart"></canvas></div>
+    <div class="chart-box"><canvas id="barChart"></canvas></div>
+    <div class="chart-box"><canvas id="pieChart"></canvas></div>
+  </div>
+  <h2>User Table</h2>
+  <table id="userTable">
+    <thead>
+      <tr><th>Name</th><th>Role</th><th>Status</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="user-actions">
+    <button class="user-edit"><i class="fas fa-pen"></i> Edit</button>
+    <button class="user-delete"><i class="fas fa-trash"></i> Delete</button>
+  </div>
+</div>
+<div id="education" class="section">
+  <h2>Education</h2>
+  <form>
+    <input placeholder="Degree">
+    <input placeholder="Institute">
+    <input placeholder="Year">
+    <button>Save</button>
+  </form>
+</div>
+<div id="experience" class="section">
+  <h2>Experience</h2>
+  <form>
+    <input placeholder="Job Title">
+    <input placeholder="Company">
+    <textarea placeholder="Description"></textarea>
+    <button>Save</button>
+  </form>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="section">
+  <h2>Projects</h2>
+  <form>
+    <input placeholder="Project Name">
+    <input placeholder="Project Link">
+    <textarea placeholder="Description"></textarea>
+    <button>Save</button>
+  </form>
+</div>
+<div id="skills" class="section">
+  <h2>Skills</h2>
+  <form>
+    <input placeholder="Skill Name">
+    <input placeholder="Skill Level %">
+    <button>Add</button>
+  </form>
+</div>
+<div id="contact" class="section">
+  <h2>Contact List</h2>
+
+  <div class="contact-toolbar">
+    <input id="contactSearch" placeholder="Search contacts...">
+    <button><i class="fas fa-file-import"></i> Import</button>
+    <button><i class="fas fa-file-export"></i> Export</button>
   </div>
 
-  <div class="input-group required">
-    <input type="text" id="fullname" placeholder="Full Name">
-  </div>
+  <table id="contactTable">
+    <thead>
+      <tr><th>Name</th><th>Role</th><th>Status</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
 
-  <div class="input-group username">
-    <input type="text" id="username" placeholder="Username">
-  </div>
-
-  <div class="input-group email">
-    <input type="email" id="email" placeholder="Email Address">
-  </div>
-
-  <div class="input-group password">
-    <input type="password" id="password" placeholder="Password">
-    <i class="fa-solid fa-eye eye" onclick="togglePass('password',this)"></i>
-  </div>
-
-  <div class="input-group password">
-    <input type="password" id="confirm" placeholder="Confirm Password">
-    <i class="fa-solid fa-eye eye" onclick="togglePass('confirm',this)"></i>
-  </div>
-
-  <button class="signup-btn" onclick="signup()">Create Account</button>
-
-  <div class="extra">
-    Already have an account? <a href="login.html">Login</a>
-  </div>
-
+</div>
 </div>
 
 <script>
-function togglePass(id,icon){
-  const input=document.getElementById(id);
-  if(input.type==="password"){
-    input.type="text";
-    icon.classList.replace("fa-eye","fa-eye-slash");
-  }else{
-    input.type="password";
-    icon.classList.replace("fa-eye-slash","fa-eye");
-  }
+function openSection(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav a').forEach(a=>a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
 }
 
-function signup(){
-  const fullname=document.getElementById("fullname").value.trim();
-  const username=document.getElementById("username").value.trim();
-  const email=document.getElementById("email").value.trim();
-  const password=document.getElementById("password").value;
-  const confirm=document.getElementById("confirm").value;
-
-  const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if(!fullname||!username||!email||!password||!confirm){
-    alert("Please fill all fields.");
-    return;
-  }
-
-  if(!emailRegex.test(email)){
-    alert("The email is invalid.");
-    return;
-  }
-
-  if(password.length<8||confirm.length<8){
-    alert("Password must be at least 8 characters.");
-    return;
-  }
-
-  if(password!==confirm){
-    alert("Passwords do not match.");
-    return;
-  }
-
-  localStorage.setItem("loggedIn","true");
-  localStorage.setItem("fullname",fullname);
-  localStorage.setItem("username",username);
-  localStorage.setItem("email",email);
-
-  window.location.href="dashboard.html";
+function makeSelectable(table){
+  table.addEventListener("click",e=>{
+    const r=e.target.closest("tr");
+    if(!r||r.parentNode.tagName!=="TBODY")return;
+    table.querySelectorAll("tbody tr").forEach(x=>x.classList.remove("selected"));
+    r.classList.add("selected");
+  });
 }
+
+const userBody=document.querySelector("#userTable tbody");
+const contactBody=document.querySelector("#contactTable tbody");
+
+function addRow(tbody,n,r,s){
+  const tr=document.createElement("tr");
+  tr.innerHTML=`<td>${n}</td><td>${r}</td><td>${s}</td>`;
+  tbody.appendChild(tr);
+}
+
+addRow(userBody,"Rimsha","Admin","Active");
+addRow(userBody,"Asad Akbar","Editor","Active");
+addRow(userBody,"Ayesha","Editor","Active");
+
+
+addRow(contactBody,"Rimsha Ali","Admin","Active");
+addRow(contactBody,"Asad Akbar","Manager","Active");
+addRow(contactBody,"Ayesha Khan","Editor","Active");
+addRow(contactBody,"Jane Doe","Staff","Inactive");
+addRow(contactBody,"Mr.John","Staff","Active");
+
+
+makeSelectable(document.getElementById("userTable"));
+makeSelectable(document.getElementById("contactTable"));
+
+document.getElementById("contactSearch").addEventListener("keyup",function(){
+  const v=this.value.toLowerCase();
+  contactBody.querySelectorAll("tr").forEach(r=>{
+    r.style.display=r.innerText.toLowerCase().includes(v)?"":"none";
+  });
+});
+
+new Chart(lineChart,{
+  type:'line',
+  data:{labels:['Jan','Feb','Mar','Apr','May'],
+  datasets:[{data:[5,8,12,10,15],borderColor:'#00ffcc'}]}
+});
+new Chart(barChart,{
+  type:'bar',
+  data:{labels:['HTML','CSS','JS'],
+  datasets:[{data:[90,85,75],backgroundColor:'#00adb5'}]}
+});
+new Chart(pieChart,{
+  type:'pie',
+  data:{labels:['Frontend','Backend','UI/UX'],
+  datasets:[{data:[50,30,20],
+  backgroundColor:['#00ffcc','#00adb5','#007f7f']}]}
+});
 </script>
 
 </body>

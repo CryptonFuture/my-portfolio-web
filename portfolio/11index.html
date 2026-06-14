@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R$ RimshaDesigns | Web Designer</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+html{scroll-behavior:smooth;}
+
+body{
+  background:url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1950&q=80") no-repeat center/cover fixed;
+  color:white;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  z-index:-1;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 10%;
+  background:rgba(20,20,20,0.95);
+  position:sticky;
+  top:0;
+  z-index:100;
+  border-bottom:2px solid #00adb5;
+}
+
+.logo{
+  font-size:1.7rem;
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+}
+.logo span{
+  font-size:2.2rem;
+  margin-right:5px;
+  background:linear-gradient(45deg,#00adb5,#00ffcc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+nav a:hover{color:#00adb5;}
+
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+}
+
+.auth-btn{
+  background:#00adb5;
+  color:black;
+  padding:10px 18px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+  border:none;
+}
+
+/* SECTIONS */
+section{padding:80px 10%;}
+h2{text-align:center;margin-bottom:25px;color:#00adb5;}
+
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.skill-bar{
+  background:#111;
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:15px;
+}
+.skill-fill{
+  height:12px;
+  background:#00adb5;
+  width:0;
+  animation:fill 2s forwards;
+}
+@keyframes fill{to{width:var(--level);}}
+
+.timeline{
+  border-left:3px solid #00adb5;
+  padding-left:20px;
+}
+
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+.project-card{
+  background:rgba(0,0,0,0.6);
+  border-radius:15px;
+  padding:15px;
+}
+.project-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.contact-form{
+  max-width:600px;
+  margin:auto;
+  background:rgba(20,20,20,0.85);
+  padding:30px;
+  border-radius:15px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.contact-form input,
+.contact-form textarea{
+  padding:10px;
+  border-radius:8px;
+  border:none;
+}
+
+footer{
+  background:rgba(15,15,15,0.7);
+  padding:50px 10%;
+  text-align:center;
+  border-top:2px solid #00adb5;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{
+    display:none;
+    flex-direction:column;
+    background:#111;
+    position:absolute;
+    top:70px;
+    right:10%;
+    padding:20px;
+  }
+  nav.active{display:flex;}
+  .menu-toggle{display:block;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo"><span>R</span>imshaDesigns</div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button class="auth-btn" onclick="openAuth()">Login / Signup</button>
+</header>
+
+<section id="home" class="hero">
+  <h1>Hi, I'm Rimsha Ali</h1>
+  <p>Web Designer & Frontend Developer</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skill-bar"><div class="skill-fill" style="--level:90%"></div></div>
+  <div class="skill-bar"><div class="skill-fill" style="--level:85%"></div></div>
+  <div class="skill-bar"><div class="skill-fill" style="--level:75%"></div></div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <p><strong>Frontend Developer</strong> – 3+ years</p>
+    <p><strong>Web Designer</strong> – UI/UX focused</p>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="timeline">
+    <p>Intermediate – IISAR Foundation</p>
+    <p>Matriculation – Green Shield Public School</p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <div class="project-card"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8"><h3>Portfolio</h3></div>
+    <div class="project-card"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d"><h3>UI Design</h3></div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <form class="contact-form">
+    <input placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button class="auth-btn">Send</button>
+  </form>
+</section>
+
+<footer>
+  © 2025 Rimsha Ali | All Rights Reserved
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("active");
+}
+
+function openAuth(){
+  window.location.href = "auth.html";
+}ss
+
+/* redirect ONLY if logged in */
+if(localStorage.getItem("loggedIn") === "true"){
+  window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>

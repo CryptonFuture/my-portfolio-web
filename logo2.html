@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rimsha Designs Logo</title>
+
+<style>
+    body{
+        margin:0;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:#111;
+        font-family:Arial, sans-serif;
+    }
+
+    .logo{
+        position:relative;
+        width:320px;
+        height:320px;
+        border-radius:50%;
+        overflow:hidden;
+        border:6px solid white;
+        box-shadow:0 0 25px rgba(255,255,255,0.4);
+    }
+
+    .logo img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        filter:brightness(0.7);
+    }
+
+    .overlay{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background:linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.2),
+            rgba(0,0,0,0.6)
+        );
+    }
+
+    .text{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        text-align:center;
+        color:white;
+    }
+
+    .text h1{
+        margin:0;
+        font-size:38px;
+        letter-spacing:2px;
+        text-transform:uppercase;
+    }
+
+    .text p{
+        margin-top:8px;
+        font-size:15px;
+        letter-spacing:4px;
+        color:#ddd;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="logo">
+
+    <!-- Mount Everest Background -->
+    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop" alt="Mount Everest">
+
+    <div class="overlay"></div>
+
+    <div class="text">
+        <h1>Rimsha</h1>
+        <p>DESIGNS</p>
+    </div>
+
+</div>
+
+</body>
+</html>

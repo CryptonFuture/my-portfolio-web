@@ -3,204 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>R$ RimshaDesigns | Portfolio</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Misha Fabrics | Luxury Fashion</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 html{scroll-behavior:smooth;}
-body{
-  background:url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1950&q=80") no-repeat center/cover fixed;
-  color:white;
-}
-body::before{
-  content:"";
-  position:fixed; inset:0;
-  background:rgba(0,0,0,0.7);
-  z-index:-1;
-}
+body{background:#0b0b0b;color:white;overflow-x:hidden;}
 
-/* HEADER */
 header{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 10%; background:rgba(20,20,20,0.95);
-  position:sticky; top:0; z-index:100; border-bottom:2px solid #00adb5;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
-.logo{font-size:1.7rem;font-weight:bold;display:flex;align-items:center;gap:4px;}
-.logo-R{font-size:2.2rem;background:linear-gradient(45deg,#00adb5,#00ffcc);
--webkit-background-clip:text;-webkit-text-fill-color:transparent;transform:rotate(-10deg);}
-nav{display:flex;gap:20px;}
-nav a{color:white;text-decoration:none;font-weight:bold;}
-nav a:hover{color:#00adb5;}
-.menu-toggle{display:none;font-size:24px;cursor:pointer;}
-.auth-btn-nav{background:#00adb5;color:black;padding:10px 18px;border-radius:10px;font-weight:bold;cursor:pointer;}
-.auth-btn-nav:hover{opacity:0.9;}
 
-/* SECTIONS */
-section{padding:80px 10%;position:relative;z-index:1;}
-h2{text-align:center;margin-bottom:25px;color:#00adb5;}
+.logo{font-size:2rem;font-weight:700;color:#D4AF37;}
 
-/* HERO */
-.hero{height:100vh; display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
-.hero h1{font-size:3rem;}
+nav{display:flex;gap:25px;align-items:center;}
+nav a{text-decoration:none;color:white;font-weight:500;transition:.3s;}
+nav a:hover{color:#D4AF37;}
 
-/* SKILLS */
-.skill{margin:15px 0;}
-.skill-bar{background:#111;border-radius:20px;overflow:hidden;}
-.skill-fill{height:12px;width:0;background:#00adb5;animation:fill 2s forwards;}
-@keyframes fill{to{width:var(--level);}}
+.login-btn,.signup-btn{
+padding:10px 20px;border-radius:30px;font-weight:600;text-decoration:none;
+}
+.login-btn{border:1px solid #D4AF37;}
+.signup-btn{background:#D4AF37;color:black;}
 
-/* TIMELINE */
-.timeline{border-left:3px solid #00adb5;padding-left:20px;}
-.timeline-item{margin-bottom:25px;}
-.timeline-item h3{color:#00adb5;}
+.menu-btn{display:none;font-size:28px;cursor:pointer;}
 
-/* PROJECTS */
-.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
-.project-card{background:rgba(0,0,0,0.6);border-radius:15px;padding:15px;}
-.project-card img{width:100%;height:180px;border-radius:10px;object-fit:cover;}
+.hero{
+height:100vh;
+display:flex;align-items:center;justify-content:center;
+text-align:center;
+padding:20px;
+background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1445205170230-053b83016050?w=1600');
+background-size:cover;background-position:center;
+}
 
-/* CONTACT FORM */
-.contact-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:12px;background:rgba(20,20,20,0.85);padding:30px;border-radius:15px;}
-.contact-form input,.contact-form textarea{padding:10px;border-radius:8px;border:none;}
+.hero-content{max-width:800px;}
+.hero-content h3{color:#D4AF37;letter-spacing:4px;margin-bottom:15px;}
+.hero-content h1{font-size:4rem;line-height:1.2;margin-bottom:20px;}
+.hero-content p{color:#ddd;margin-bottom:30px;}
 
-/* FOOTER */
-footer{background:rgba(15,15,15,0.6);backdrop-filter:blur(12px);padding:60px 10%;border-top:2px solid rgba(0,173,181,0.6);}
-.footer-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px;}
-.footer-box h3{color:#00adb5;margin-bottom:15px;}
-.footer-box p{color:#ccc;line-height:1.6;}
-.footer-links a{display:block;color:#ccc;text-decoration:none;margin-bottom:8px;}
-.footer-links a:hover{color:#00adb5;}
-.social-buttons{display:flex;flex-direction:column;gap:12px;}
-.social-buttons a{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px;font-size:15px;font-weight:bold;color:white;text-decoration:none;transition:0.3s;}
-.social-buttons a i{font-size:20px;}
-.btn-github{background:#24292e;}
-.btn-linkedin{background:#0077b5;}
-.btn-instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);}
-.btn-email{background:#00adb5;}
-.social-buttons a:hover{transform:translateY(-4px);opacity:0.9;}
-.footer-bottom{margin-top:40px;text-align:center;color:#aaa;font-size:14px;}
+.hero-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;}
+.shop-btn,.explore-btn{padding:15px 35px;border-radius:40px;font-weight:600;text-decoration:none;}
+.shop-btn{background:#D4AF37;color:black;}
+.explore-btn{border:1px solid white;color:white;}
 
-/* ANIMATIONS */
-.animate{opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;}
-.animate.show{opacity:1;transform:translateY(0);}
-.fade-left{transform:translateX(-40px);}
-.fade-right{transform:translateX(40px);}
-.scale-up{transform:scale(0.85);}
+section{padding:90px 8%;}
+.section-title{text-align:center;color:#D4AF37;font-size:2.3rem;margin-bottom:40px;}
 
-/* MOBILE */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
+.card{background:#141414;border-radius:18px;overflow:hidden;transition:.3s;text-align:center;}
+.card:hover{transform:translateY(-8px);box-shadow:0 0 25px rgba(212,175,55,.35);}
+.card img{width:100%;height:320px;object-fit:cover;}
+.card-content{padding:18px;}
+.price{color:#D4AF37;font-weight:600;margin:10px 0;}
+.card button{width:100%;padding:12px;border:none;background:#D4AF37;font-weight:600;cursor:pointer;}
+
+.banner{background:#D4AF37;color:black;text-align:center;padding:90px 20px;}
+.banner h2{font-size:2.6rem;margin-bottom:20px;}
+.banner a{background:black;color:white;padding:14px 30px;display:inline-block;text-decoration:none;}
+
+footer{text-align:center;background:#050505;padding:60px 20px;}
+.socials{display:flex;justify-content:center;gap:20px;margin:20px 0;}
+.socials a{color:#D4AF37;font-size:22px;}
+
 @media(max-width:768px){
-  nav{display:none;flex-direction:column;background:#111;position:absolute;top:70px;right:10%;}
-  nav.active{display:flex;}
-  .menu-toggle{display:block;}
+.menu-btn{display:block;}
+nav{position:fixed;top:80px;right:-100%;width:250px;height:100vh;background:#111;flex-direction:column;padding-top:50px;transition:.4s;}
+nav.show{right:0;}
+.hero-content h1{font-size:2.5rem;}
+.hero-buttons{flex-direction:column;}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo"><span class="logo-R">R</span>imshaDesigns</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <nav id="nav">
-    <a href="#home">Home</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <button class="auth-btn-nav" onclick="openAuth()">Login / Signup</button>
+<div class="logo">Misha Fabrics</div>
+
+<nav id="nav">
+<a href="#">Home</a>
+<a href="#featured">Shop</a>
+<a href="#">Collections</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+
+<!-- CONNECTED LOGIN & SIGNUP -->
+<a href="login1.html" class="login-btn">Login</a>
+<a href="signup2.html" class="signup-btn">Sign Up</a>
+</nav>
+
+<div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
 </header>
 
-<section id="home" class="hero">
-  <h1 class="animate scale-up">Hi, I'm Rimsha Ali</h1>
-  <p class="animate">Web Designer & Frontend Developer</p>
+<section class="hero">
+<div class="hero-content">
+<h3>LUXURY COLLECTION 2026</h3>
+<h1>Elegance Woven Into Every Thread</h1>
+<p>Premium Lawn Suits & Designer Wear</p>
+<div class="hero-buttons">
+<a href="#featured" class="shop-btn">Shop Now</a>
+<a href="#featured" class="explore-btn">Explore</a>
+</div>
+</div>
 </section>
 
-<section id="skills">
-  <h2 class="animate fade-left">Skills</h2>
-  <div class="skill animate"><div class="skill-bar"><div class="skill-fill" style="--level:90%"></div></div></div>
-  <div class="skill animate"><div class="skill-bar"><div class="skill-fill" style="--level:85%"></div></div></div>
-  <div class="skill animate"><div class="skill-bar"><div class="skill-fill" style="--level:75%"></div></div></div>
+<section>
+<h2 class="section-title">Shop By Category</h2>
+<div class="grid">
+<div class="card"><h3>Luxury Lawn</h3><p>Premium Summer Collection</p></div>
+<div class="card"><h3>Women's Dresses</h3><p>Elegant Wear</p></div>
+<div class="card"><h3>Fabrics</h3><p>Luxury Range</p></div>
+</div>
 </section>
 
-<section id="experience">
-  <h2 class="animate fade-right">Experience</h2>
-  <div class="timeline">
-    <div class="timeline-item animate"><h3>Frontend Developer</h3><p>3+ years building responsive websites</p></div>
-    <div class="timeline-item animate"><h3>Web Designer</h3><p>UI/UX focused modern designs</p></div>
-  </div>
-</section>
+section id="featured">
+<h2 class="section-title">Featured</h2>
+<div class="grid">
 
-<section id="education">
-  <h2 class="animate fade-left">Education</h2>
-  <div class="timeline">
-    <div class="timeline-item animate"><h3>Intermediate</h3><p>IISAR Foundation — 2025–2027</p></div>
-    <div class="timeline-item animate"><h3>Matriculation</h3><p>Green Shield Public School — 2013–2024</p></div>
-  </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800">
+<div class="card-content">
+<h3>Royal Suit</h3>
+<div class="price">Rs. 6,999</div>
+<button class="cart-btn">Add To Cart</button>
+</div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800">
+<div class="card-content">
+<h3>Designer Dress</h3>
+<div class="price">Rs. 8,499</div>
+<button class="cart-btn">Add To Cart</button>
+</div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800">
+<div class="card-content">
+<h3>Premium Fabric</h3>
+<div class="price">Rs. 5,499</div>
+<button class="cart-btn">Add To Cart</button>
+</div>
+</div>
+</div>
 </section>
-
-<section id="projects">
-  <h2 class="animate fade-right">Projects</h2>
-  <div class="project-grid">
-    <div class="project-card animate"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8"><h3>Creative Portfolio</h3></div>
-    <div class="project-card animate"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d"><h3>UI / UX Design</h3></div>
-    <div class="project-card animate"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"><h3>Frontend Website</h3></div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2 class="animate scale-up">Contact Me</h2>
-  <form class="contact-form">
-    <input class="animate" type="text" placeholder="Name" required>
-    <input class="animate" type="email" placeholder="Email" required>
-    <textarea class="animate" placeholder="Message" required></textarea>
-    <button class="animate scale-up">Send</button>
-  </form>
+<section class="banner">
+<h2>Flat 30% Off</h2>
+<a href="#featured">Shop Now</a>
 </section>
 
 <footer>
-  <div class="footer-container">
-    <div class="footer-box">
-      <h3 class="animate">About Me</h3>
-      <p class="animate">I am Rimsha Ali, a Web Designer & Frontend Developer creating modern websites.</p>
-    </div>
-    <div class="footer-box footer-links">
-      <h3 class="animate">Quick Links</h3>
-      <a class="animate" href="#home">Home</a>
-      <a class="animate" href="#skills">Skills</a>
-      <a class="animate" href="#experience">Experience</a>
-      <a class="animate" href="#education">Education</a>
-      <a class="animate" href="#projects">Projects</a>
-      <a class="animate" href="#contact">Contact</a>
-    </div>
-    <div class="footer-box">
-      <h3 class="animate">Connect With Me</h3>
-      <div class="social-buttons">
-        <a href="#" class="btn-github animate"><i class="fab fa-github"></i> GitHub</a>
-        <a href="#" class="btn-linkedin animate"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="#" class="btn-instagram animate"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="mailto:example@email.com" class="btn-email animate"><i class="fas fa-envelope"></i> Email</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom animate">© 2025 Rimsha Ali | All Rights Reserved</div>
+<h2>Misha Fabrics</h2>
+<p>Luxury Fashion Brand</p>
+<div class="socials">
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-whatsapp"></i></a>
+</div>
 </footer>
-
 <script>
-function toggleMenu(){document.getElementById("nav").classList.toggle("active");}
+const menuBtn=document.querySelector(".menu-btn");
+const nav=document.querySelector("#nav");
+menuBtn.addEventListener("click",()=>nav.classList.toggle("show"));
 
-// Animate sections on scroll
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:0.2});
-document.querySelectorAll(".animate").forEach(el=>observer.observe(el));
-
-function openAuth(){ window.location.href="login.html"}
+document.querySelectorAll(".cart-btn").forEach(btn=>{
+btn.addEventListener("click",()=>alert("Added to cart!"));
+});
 </script>
 </body>
 </html>

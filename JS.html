@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result System</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Result System</h2>
+    <button onclick="showResults()">Show Results</button>
+
+    <div id="output"></div>
+
+<script>
+
+// Variables
+let passMark = 50;
+let schoolName = "Green Valley High School";
+
+// Array of Objects
+let students = [
+    { name: "Alice", scores: [80, 75, 90] },
+    { name: "Bob", scores: [40, 45, 50] },
+    { name: "Charlie", scores: [30, 35, 25] }
+];
+
+// Function to calculate average
+function calculateAverage(scores) {
+    let total = 0;
+
+    for (let i = 0; i < scores.length; i++) {
+        total += scores[i];  // += operator
+    }
+
+    return total / scores.length;  // division operator
+}
+
+// Main function
+function showResults() {
+
+    let outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = "<h3>" + schoolName + "</h3>";
+
+    let passedCount = 0;
+
+    for (let i = 0; i < students.length; i++) {
+
+        let student = students[i]; // object
+        let avg = calculateAverage(student.scores);
+
+        let status = "";
+
+        // Conditions with operators
+        if (avg >= passMark) {
+            status = "PASSED";
+            passedCount++;  // increment operator
+        } 
+        else if (avg >= 40 && avg < passMark) {
+            status = "NEEDS IMPROVEMENT";
+        } 
+        else {
+            status = "FAILED";
+        }
+
+        // String template
+        let message = `Name: ${student.name} | Average: ${avg.toFixed(2)} | Status: ${status}`;
+
+        outputDiv.innerHTML += "<p>" + message + "</p>";
+    }
+
+    // Ternary operator
+    let summary = passedCount > 0 
+        ? passedCount + " student(s) passed."
+        : "No students passed.";
+
+    outputDiv.innerHTML += "<hr><strong>" + summary + "</strong>";
+}
+
+</script>
+
+</body>
+</html>
