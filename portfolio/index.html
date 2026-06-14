@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RimshaDesigns | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:url("https://images.unsplash.com/photo-1498050108023-c5249f4df085") center/cover fixed;
+  color:white;
+}
+body::before{
+  content:"";position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:-1;
+}
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 10%;border-bottom:2px solid #00adb5;
+}
+.logo{font-size:1.8rem;font-weight:bold}
+.logo span{color:#00adb5}
+.auth-btn{
+  background:#00adb5;border:none;padding:12px 20px;
+  font-weight:bold;border-radius:10px;cursor:pointer;
+}
+.hero{
+  height:80vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+}
+.hero h1{font-size:3rem}
+.hero p{opacity:.85}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo"><span>R</span>imshaDesigns</div>
+  <button class="auth-btn" onclick="location.href='login.html'">
+    Login / Signup
+  </button>
+</header>
+
+<section class="hero">
+  <h1>Hi, I'm Rimsha Ali</h1>
+  <p>Web Designer & Frontend Developer</p>
+</section>
+
+</body>
+</html>

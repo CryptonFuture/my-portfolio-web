@@ -2,88 +2,84 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Sign Up | RimshaDesigns</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signup | RimshaDesigns</title>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{
   min-height:100vh;
-  background:url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1950&q=80") center/cover fixed;
-  display:flex;align-items:center;justify-content:center;color:white;
+  background:#0f0f0f;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial,sans-serif;
+  color:white;
 }
-body::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:-1}
-
 .card{
-  width:400px;background:rgba(0,0,0,.65);
-  border:1px solid rgba(0,173,181,.4);
-  border-radius:22px;padding:40px;
-  backdrop-filter:blur(15px);
+  background:#1a1a1a;
+  padding:40px;
+  width:380px;
+  border-radius:18px;
+  box-shadow:0 0 30px rgba(0,173,181,.3);
 }
-
-.logo{text-align:center;font-size:2rem;font-weight:bold;margin-bottom:30px}
-.logo span{
-  font-size:2.4rem;
-  background:linear-gradient(45deg,#00adb5,#00ffcc);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+h2{color:#00adb5;text-align:center;margin-bottom:20px}
+input{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:none;
 }
-
-.field{position:relative;margin-bottom:22px}
-.field label{
-  position:absolute;top:-8px;left:14px;
-  background:#000;padding:0 6px;
-  font-size:12px;color:#00adb5;
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#00adb5;
+  font-weight:bold;
+  cursor:pointer;
 }
-.field input{
-  width:100%;padding:14px;
-  border-radius:12px;border:1px solid rgba(0,173,181,.4);
-  background:rgba(0,0,0,.6);color:white;
-}
-
-.btn{
-  width:100%;padding:14px;border:none;border-radius:14px;
-  font-weight:bold;background:linear-gradient(45deg,#00adb5,#00ffcc);
-  color:black;cursor:pointer;
-}
-
-.switch{text-align:center;margin-top:18px;font-size:14px}
-.switch a{color:#00adb5;text-decoration:none}
+p{text-align:center;margin-top:16px;font-size:14px}
+a{color:#00adb5;text-decoration:none}
 </style>
 </head>
 
 <body>
+
 <div class="card">
-  <div class="logo"><span>R</span>imshaDesigns</div>
-
-  <div class="field">
-    <label>Full Name</label>
-    <input type="text" placeholder="Required">
-  </div>
-
-  <div class="field">
-    <label>Email</label>
-    <input type="email" placeholder="Required">
-  </div>
-
-  <div class="field">
-    <label>Password</label>
-    <input type="password" placeholder="Required">
-  </div>
-
-  <!-- Signup redirects to dashboard -->
-  <button class="btn" type="button" onclick="goDashboard()">Sign Up</button>
-
-  <div class="switch">
-    Already have an account?
-    <a href="login.html">Login</a>
-  </div>
+  <h2>Create Account</h2>
+  <input id="name" placeholder="Full Name">
+  <input id="email" type="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password (min 8 chars)">
+  <button onclick="signup()">Sign Up</button>
+  <p>Already have an account? <a href="login.html">Login</a></p>
 </div>
 
 <script>
-function goDashboard(){
+function signup(){
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if(!name || !email || !password){
+    alert("Fill all fields");
+    return;
+  }
+  if(password.length < 8){
+    alert("Password must be at least 8 characters");
+    return;
+  }
+
+  localStorage.setItem("name", name);
+  localStorage.setItem("email", email);
+  localStorage.setItem("password", password);
+
+  alert("Signup successful!");
   window.location.href = "dashboard.html";
 }
 </script>
+
 </body>
 </html>

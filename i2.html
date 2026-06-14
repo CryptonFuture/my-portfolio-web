@@ -1,0 +1,267 @@
+    <!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MishaDesigns | Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+html{scroll-behavior:smooth;}
+body{background:url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1950&q=80") no-repeat center/cover fixed;color:white;}
+body::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:-1;}
+
+/* LOADER */
+#loader{
+position:fixed;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,0.85);
+z-index:9999;
+}
+#loader i{font-size:50px;color:#00adb5;margin-bottom:20px;animation: spin 1.5s linear infinite;}
+@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+.loading-bar{width:200px;height:8px;background:#111;border-radius:4px;overflow:hidden;}
+.loading-fill{width:0%;height:100%;background:#00adb5;transition:width 0.3s linear;}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:rgba(20,20,20,0.95);
+position:sticky;
+top:0;
+z-index:100;
+border-bottom:2px solid #00adb5;
+}
+
+.logo{font-size:1.7rem;font-weight:bold;}
+
+/* UPDATED NAV ALIGNMENT */
+nav{
+display:flex;
+align-items:center;
+justify-content:space-between;
+width:100%;
+margin-left:40px;
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+flex:1;
+}
+
+nav a{color:white;text-decoration:none;font-weight:bold;}
+nav a:hover{color:#00adb5;}
+
+.auth-buttons{display:flex;gap:10px;}
+.auth-buttons a{padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:bold;}
+.login-btn{background:transparent;border:2px solid #00adb5;color:white;}
+.signup-btn{background:#00adb5;color:white;}
+
+/* MOBILE */
+#menu-toggle{display:none;font-size:25px;cursor:pointer;}
+@media(max-width:768px){
+nav{
+position:fixed;
+top:0;
+right:-100%;
+height:100vh;
+width:200px;
+background:rgba(20,20,20,0.95);
+flex-direction:column;
+padding-top:80px;
+gap:30px;
+transition:0.3s;
+}
+nav.show{right:0;}
+.nav-links{flex-direction:column;}
+#menu-toggle{display:block;}
+}
+
+/* HERO */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.hero h1{font-size:3rem;}
+.hero p{font-size:1.2rem;}
+
+/* SECTIONS */
+section{padding:80px 10%;}
+h2{text-align:center;margin-bottom:30px;color:#00adb5;}
+
+/* SKILLS */
+.skill{margin:20px 0;}
+.skill-bar{background:#111;border-radius:20px;overflow:hidden;}
+.skill-fill{height:12px;width:0;background:#00adb5;transition:1.5s;}
+
+/* EDUCATION */
+.education-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+.education-card{background:rgba(0,0,0,0.6);padding:20px;border-radius:15px;}
+
+/* PROJECTS */
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+.project-card{background:rgba(0,0,0,0.6);border-radius:15px;padding:15px;}
+.project-card img{width:100%;height:180px;object-fit:cover;border-radius:10px;}
+
+/* CONTACT */
+.contact-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:12px;background:rgba(20,20,20,0.85);padding:30px;border-radius:15px;}
+.contact-form input,.contact-form textarea{padding:10px;border:none;border-radius:8px;}
+.contact-form button{background:#00adb5;border:none;padding:12px;border-radius:10px;font-weight:bold;cursor:pointer;}
+
+/* FOOTER */
+footer{margin-top:60px;padding:40px;text-align:center;background:rgba(255,255,255,0.05);}
+.footer-socials{margin:20px 0;display:flex;justify-content:center;gap:20px;}
+.footer-socials a{width:45px;height:45px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,0.1);color:white;font-size:20px;}
+</style>
+
+</head>
+
+<body>
+
+<!-- LOADER -->
+
+<div id="loader">
+<i class="fa-solid fa-gem"></i>
+<div class="loading-bar"><div class="loading-fill"></div></div>
+</div>
+
+<header>
+<div class="logo">RimshaDesigns</div>
+<i id="menu-toggle" class="fa fa-bars"></i>
+
+<nav>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#skills">Skills</a>
+<a href="#education">Education</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div class="auth-buttons">
+<a href="login.html" class="login-btn">Login</a>
+<a href="signup.html" class="signup-btn">Sign Up</a>
+</div>
+</nav>
+</header>
+
+<section id="home" class="hero">
+<h1>Hi, I'm Rimsha Ali</h1>
+<p>Web Designer & Frontend Developer</p>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="skill"><p>HTML</p><div class="skill-bar"><div class="skill-fill" data-level="90%"></div></div></div>
+<div class="skill"><p>CSS</p><div class="skill-bar"><div class="skill-fill" data-level="85%"></div></div></div>
+<div class="skill"><p>JavaScript</p><div class="skill-bar"><div class="skill-fill" data-level="75%"></div></div></div>
+</section>
+
+<section id="education">
+<h2>Education</h2>
+<div class="education-grid">
+<div class="education-card"><h3>Matriculation</h3><p>Science</p><p>2021</p></div>
+<div class="education-card"><h3>Intermediate</h3><p>Computer Science</p><p>2023</p></div>
+<div class="education-card"><h3>Web Development</h3><p>Self-Learning</p><p>2024-Present</p></div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="project-grid">
+<div class="project-card"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8"><h3>Creative Portfolio</h3></div>
+<div class="project-card"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d"><h3>UI UX Design</h3></div>
+<div class="project-card"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"><h3>Frontend Website</h3></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact Me</h2>
+<form class="contact-form">
+<input type="text" placeholder="Name" required>
+<input type="email" placeholder="Email" required>
+<textarea placeholder="Message" required></textarea>
+<button type="submit">Send</button>
+</form>
+</section>
+
+<footer>
+<h3>MishaDesigns</h3>
+<div class="footer-socials">
+<a href="#"><i class="fa-solid fa-envelope"></i></a>
+<a href="#"><i class="fa-brands fa-github"></i></a>
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+<a href="#"><i class="fa-brands fa-linkedin"></i></a>
+</div>
+<p>© 2025 Rimsha Ali</p>
+</footer>
+
+<script>
+// DOM
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.querySelector('nav');
+
+// CALLBACK + ARROW
+menuToggle.addEventListener('click', ()=>{nav.classList.toggle('show');});
+
+// CLOSE MENU
+document.querySelectorAll('nav a').forEach(link=>{
+link.addEventListener('click', ()=>nav.classList.remove('show'));
+});
+
+// SKILLS
+const skills=document.querySelectorAll(".skill-fill");
+function animateSkills(){
+skills.forEach((bar,i)=>{
+setTimeout(()=>{bar.style.width=bar.dataset.level;},i*400);
+});
+}
+
+// PROMISE
+function fakeLoading(){
+return new Promise((resolve)=>{
+let width = 0;
+const loadingFill = document.querySelector('.loading-fill');
+
+const interval = setInterval(()=>{
+if(width>=100){
+clearInterval(interval);
+resolve();
+}else{
+width += Math.floor(Math.random()*10+5);
+if(width>100) width=100;
+loadingFill.style.width = width+'%';
+}
+},300);
+});
+}
+
+// ASYNC/AWAIT
+async function startLoading(){
+const loader = document.getElementById('loader');
+
+if(!navigator.onLine){
+alert("Connection not found!");
+loader.style.display='none';
+return;
+}
+
+await fakeLoading();
+
+loader.style.display='none';
+animateSkills();
+}
+
+setTimeout(startLoading,500);
+</script>
+
+</body>
+</html>

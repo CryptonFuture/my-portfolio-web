@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rimsha Ali | Web Designer</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#0d1b2a;color:white;overflow-x:hidden;}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 10%;
+  background:#0d1b2a;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.logo{
+  font-size:1.5rem;font-weight:bold;color:#00adb5;
+  display:flex;align-items:center;gap:10px;
+}
+.logo img{height:35px;width:35px;border-radius:50%;}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  gap:20px;
+}
+nav a{color:white;text-decoration:none;position:relative;}
+nav a:hover{color:#00adb5;}
+nav a::after{
+  content:'';
+  position:absolute;
+  width:0; height:2px; bottom:-3px; left:0;
+  background:#00adb5; transition:.3s;
+}
+nav a:hover::after{width:100%;}
+
+/* MENU TOGGLE */
+.menu-toggle{display:none;font-size:28px;cursor:pointer;color:white;}
+
+/* SECTIONS */
+section{
+  padding:80px 10%;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  min-height:80vh;
+}
+section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(13,27,42,0.75);
+}
+section>*{position:relative;z-index:1;}
+
+/* HERO */
+.hero{
+  height:100vh;
+  background-image:url("https://images.unsplash.com/photo-1581092918360-99408b7a920e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8d2ViJTIwZGVzaWdufHx8fHx8MTY5NDQxMDQ3Nw&ixlib=rb-4.0.3&q=80&w=1080");
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.hero h1{font-size:3rem;}
+.hero button{
+  margin-top:20px;
+  padding:12px 28px;
+  background:#00adb5;
+  border:none;
+  color:white;
+  border-radius:25px;
+  cursor:pointer;
+  transition:.3s;
+}
+.hero button:hover{transform:translateY(-5px);}
+
+/* SKILLS */
+#skills{
+  background-image:url("https://images.unsplash.com/photo-1527689368864-3a821dbccc34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y29kaW5nfHx8fHx8MTY5NDQxMDUyNg&ixlib=rb-4.0.3&q=80&w=1080");
+}
+.skill{margin:15px 0;}
+.skill-name{margin-bottom:5px;}
+.skill-bar{
+  background:#23395d;
+  border-radius:20px;
+  overflow:hidden;
+}
+.skill-fill{
+  height:12px;
+  width:0;
+  background:#00adb5;
+  border-radius:20px;
+  transition:width 2s;
+}
+
+/* EXPERIENCE TIMELINE */
+#experience{
+  background-image:url("https://images.unsplash.com/photo-1521791136064-7986c2920216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZXhwZXJpZW5jZXxlbnwwfHx8fDE2OTQ0MTA1ODU&ixlib=rb-4.0.3&q=80&w=1080");
+}
+.timeline{
+  border-left:3px solid #00adb5;
+  padding-left:20px;
+}
+.timeline-item{margin-bottom:25px;}
+.timeline-item h3{color:#00adb5;}
+
+/* PROJECTS */
+#projects{
+  background-image:url("https://images.unsplash.com/photo-1581090700227-6e6df4c56a2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvamVjdHN8fHx8fDE2OTQ0MTA2MTk&ixlib=rb-4.0.3&q=80&w=1080");
+}
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.project-card{
+  background:rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:15px;
+  transition:.3s;
+}
+.project-card:hover{transform:translateY(-8px);}
+
+/* CONTACT */
+#contact{
+  background-image:url("https://images.unsplash.com/photo-1581090485820-40fa21f9d6b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y29udGFjdHxlbnwwfHx8fDE2OTQ0MTA2Njg&ixlib=rb-4.0.3&q=80&w=1080");
+}
+.contact-form{
+  max-width:600px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.contact-form input,.contact-form textarea{
+  padding:10px;border:none;border-radius:8px;
+}
+.contact-form button{
+  background:#00adb5;border:none;padding:12px;color:white;border-radius:25px;
+  cursor:pointer;transition:.3s;
+}
+.contact-form button:hover{background:#009ba3;}
+
+/* FOOTER */
+footer{text-align:center;padding:20px;background:#0d1b2a;}
+
+/* BACK TO TOP */
+#backToTop{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:#00adb5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  display:none;
+  font-size:24px;
+  transition:.3s;
+}
+#backToTop:hover{background:#009ba3;}
+
+/* MOBILE NAV DRAWER */
+@media(max-width:768px){
+  .menu-toggle{display:block;}
+  nav{
+    position:fixed;
+    top:0; right:-250px;
+    height:100%;
+    width:250px;
+    background:#0d1b2a;
+    flex-direction:column;
+    gap:30px;
+    padding:80px 20px;
+    transition: right 0.3s;
+    z-index:200;
+  }
+  nav.active{right:0;}
+  nav a{font-size:1.2rem;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo">
+    RimshaDesigns
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav id="nav">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#skills" onclick="closeMenu()">Skills</a>
+    <a href="#experience" onclick="closeMenu()">Experience</a>
+    <a href="#projects" onclick="closeMenu()">Projects</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1>Hi, I'm Rimsha Ali</h1>
+  <p>Web Designer & Frontend Developer</p>
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skill"><div class="skill-name">HTML</div><div class="skill-bar"><div class="skill-fill" style="--level:90%"></div></div></div>
+  <div class="skill"><div class="skill-name">CSS</div><div class="skill-bar"><div class="skill-fill" style="--level:85%"></div></div></div>
+  <div class="skill"><div class="skill-name">JavaScript</div><div class="skill-bar"><div class="skill-fill" style="--level:75%"></div></div></div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Frontend Developer</h3>
+      <p>3+ years building responsive websites</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Web Designer</h3>
+      <p>UI/UX focused modern designs</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">Portfolio Website</div>
+    <div class="project-card">Landing Page</div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form class="contact-form">
+    <input placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="5" placeholder="Message"></textarea>
+    <button>Send</button>
+  </form>
+</section>
+
+<footer>© 2025 Rimsha Ali | Web Designer</footer>
+
+<div id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+// Drawer toggle
+function toggleMenu(){document.getElementById("nav").classList.toggle("active");}
+function closeMenu(){document.getElementById("nav").classList.remove("active");}
+
+// Animate skills on scroll
+const skills = document.querySelectorAll('.skill-fill');
+const skillsSection = document.getElementById('skills');
+window.addEventListener('scroll', () => {
+  const rect = skillsSection.getBoundingClientRect();
+  if(rect.top < window.innerHeight-100){
+    skills.forEach(s => s.style.width = s.style.getPropertyValue('--level'));
+  }
+});
+
+// Back to top arrow
+window.addEventListener("scroll", ()=>{
+  document.getElementById("backToTop").style.display =
+    window.scrollY>300 ? "flex" : "none";
+});
+</script>
+
+</body>
+</html>
